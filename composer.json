@@ -1,0 +1,18 @@
+{
+    "name": "shayan/todo",
+    "description": "a very simple project with PHP",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "Shayan\\Todo\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "shayanmmd",
+            "email": "119744618+shayanmmd@users.noreply.github.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {}
+}
