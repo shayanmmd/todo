@@ -11,3 +11,5 @@ try {
 } catch (PDOException $pdoException) {
     errorPage();
 }
+
+include("libs/folders.php");

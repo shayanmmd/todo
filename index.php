@@ -2,7 +2,7 @@
 
 include("bootstrap/init.php");
 
-//$folders = getFolders();
+$folders = getFolders();
 
 
 

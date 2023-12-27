@@ -21,12 +21,11 @@
         </div>
       </div>
       <div class="menu">
-        <div class="title">Navigation</div>
+        <div class="title">Folders</div>
         <ul>
-          <li> <i class="fa fa-home"></i>Home</li>
-          <li><i class="fa fa-signal"></i>Activity</li>
-          <li class="active"> <i class="fa fa-tasks"></i>Manage Tasks</li>
-          <li> <i class="fa fa-envelope"></i>Messages</li>
+          <?php foreach($folders as $folder): ?>
+          <li> <i class="fa fa-folder"></i><?= $folder->name ?></li>
+          <?php endforeach; ?>
         </ul>
       </div>
     </div>
