@@ -25,10 +25,13 @@
         <div class="menu">
           <div class="title">Folders</div>
           <ul>
+            <i class="fa fa-folder">
+              <a style="text-decoration: none; color: #413e3e" href="<?= siteUrl() ?>">All</a>
+            </i>
             <?php foreach ($folders as $folder) : ?>
               <li>
                 <i class="fa fa-folder">
-                  <a style="text-decoration: none; color: #413e3e" href="?id=<?= $folder->id ?>">
+                  <a style="text-decoration: none; color: #413e3e" href="?folderId=<?= $folder->id ?>">
                 </i><?= $folder->name ?>
                 <a href="?remove=<?= $folder->id ?>">
                   <i class="fa fa-trash-o">
@@ -53,29 +56,16 @@
           <div class="list">
             <div class="title">Today</div>
             <ul>
-              <li class="checked"><i class="fa fa-check-square-o"></i><span>Update team page</span>
-                <div class="info">
-                  <div class="button green">In progress</div><span>Complete by 25/04/2014</span>
-                </div>
-              </li>
-              <li><i class="fa fa-square-o"></i><span>Design a new logo</span>
-                <div class="info">
-                  <div class="button">Pending</div><span>Complete by 10/04/2014</span>
-                </div>
-              </li>
-              <li><i class="fa fa-square-o"></i><span>Find a front end developer</span>
-                <div class="info"></div>
-              </li>
+              <?php foreach ($tasks as $task) : ?>
+                <li class="<?= ($task->is_done) ? 'checked' : '' ?>">
+                  <i class="<?= ($task->is_done) ? 'fa fa-check-square-o' : 'fa fa-square-o' ?>">
+                  </i>
+                  <span><?= $task->title ?>
+                  </span>
+                <?php endforeach; ?>
             </ul>
           </div>
-          <div class="list">
-            <div class="title">Tomorrow</div>
-            <ul>
-              <li><i class="fa fa-square-o"></i><span>Find front end developer</span>
-                <div class="info"></div>
-              </li>
-            </ul>
-          </div>
+
         </div>
       </div>
     </div>

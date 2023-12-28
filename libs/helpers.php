@@ -1,6 +1,6 @@
 <?php
 
-function siteUrl(string $path)
+function siteUrl(string $path="")
 {
     return BASEURL . $path;
 }
