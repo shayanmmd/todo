@@ -21,3 +21,12 @@ function addNewTask($taskTitle, $folderId)
     $stmt->execute([":title" => $taskTitle, ":folder_id" => $folderId, "user_id" => $currentUserId]);
     return $stmt->rowCount();
 }
+
+function deleteTask($taskId)
+{
+    global $pdo;
+    $query = "delete from tasks where id = :taskId";
+    $stmt = $pdo->prepare($query);
+    $stmt->execute([":taskId" => $taskId]);
+    return $stmt->rowCount();
+}

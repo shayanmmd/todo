@@ -56,8 +56,8 @@
               <div><i class="fa fa-search"></i>
                 <input name="addNewTask" type="search">
                 <div class="functions">
-                  <input name="folderId" type="hidden" value="<?= $_GET['folderId'] ?? null ?>" >
-                  <input name="addNewTaskButton" type="submit" value="Add New Task" >                
+                  <input name="folderId" type="hidden" value="<?= $_GET['folderId'] ?? null ?>">
+                  <input name="addNewTaskButton" type="submit" value="Add New Task">
                 </div>
               </div>
             </form>
@@ -73,7 +73,11 @@
                   </i>
                   <span><?= $task->title ?>
                   </span>
-                <?php endforeach; ?>
+                  <a href="?removeTask=<?= $task->id ?>">
+                    <i class="fa fa-trash-o">
+                    </i>
+                  </a>
+                  <?php endforeach; ?>
             </ul>
           </div>
 
