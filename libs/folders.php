@@ -1,5 +1,5 @@
 <?php
-    
+
 function getFolders()
 {
     global $pdo;
@@ -15,6 +15,16 @@ function deleteFolder($folderId)
     global $pdo;
     $query = "delete From folders where id = :folderId";
     $stmt = $pdo->prepare($query);
-    $stmt->execute(['folderId'=>$folderId]);    
+    $stmt->execute(['folderId' => $folderId]);
+    return $stmt->rowCount();
+}
+
+function addFolder($folderName)
+{
+    global $pdo;
+    $currentUserId = getCurrentUserId();
+    $query = "insert into folders (name,user_id) values (:name,:user_id)";
+    $stmt = $pdo->prepare($query);
+    $stmt->execute([":name"=>$folderName , ":user_id"=>$currentUserId]);
     return $stmt->rowCount();
 }

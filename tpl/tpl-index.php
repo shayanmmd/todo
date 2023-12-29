@@ -40,16 +40,27 @@
                 </a>
               </li>
             <?php endforeach; ?>
+            <div>
+              <form action="" method="post">
+                <input name="folderName" type="text">
+                <input name="addFolderButton" type="submit" value="+">
+              </form>
+            </div>
           </ul>
         </div>
       </div>
       <div class="view">
         <div class="viewHeader">
-          <div class="title">Manage Tasks</div>
-          <div class="functions">
-            <div class="button active">Add New Task</div>
-            <div class="button">Completed</div>
-            <div class="button inverz"><i class="fa fa-trash-o"></i></div>
+          <div class="searchbox">
+            <form action="/index.php" method="post">
+              <div><i class="fa fa-search"></i>
+                <input name="addNewTask" type="search">
+                <div class="functions">
+                  <input name="folderId" type="hidden" value="<?= $_GET['folderId'] ?? null ?>" >
+                  <input name="addNewTaskButton" type="submit" value="Add New Task" >                
+                </div>
+              </div>
+            </form>
           </div>
         </div>
         <div class="content">
