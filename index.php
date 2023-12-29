@@ -2,6 +2,13 @@
 
 include("bootstrap/init.php");
 
+if (isset($_GET['logout'])){
+    logOut();
+    header("location:" . siteUrl('/tpl/tpl-auth.php'));
+}
+if (!isUserLoggedIn())
+    header("location:" . siteUrl('/tpl/tpl-auth.php'));
+
 if (isset($_GET['remove']) and is_numeric($_GET['remove'])) {
     $deletedRows = deleteFolder($_GET['remove']);
     ($deletedRows == 0) ? dd("there is no such folder in database go to home by this link:") : '';

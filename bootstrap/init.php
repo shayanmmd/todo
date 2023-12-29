@@ -4,6 +4,8 @@ include("constants.php");
 include("libs/helpers.php");
 include("config.php");
 
+session_start();
+
 $host = HOST;
 $database = DATABASE;
 try {
@@ -14,3 +16,4 @@ try {
 
 include("libs/folders.php");
 include("libs/tasks.php");
+include("libs/auth.php");

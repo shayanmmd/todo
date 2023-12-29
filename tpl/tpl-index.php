@@ -13,7 +13,13 @@
   <div class="page">
     <div class="pageHeader">
       <div class="title">Dashboard</div>
-      <div class="userPanel"><i class="fa fa-chevron-down"></i><span class="username">John Doe </span><img src="https://s3.amazonaws.com/uifaces/faces/twitter/kolage/73.jpg" width="40" height="40" /></div>
+      <div class="userPanel">
+        <i class="fa fa-chevron-down">
+          <a href="?logout">logout</a>
+        </i>
+        <span class="username"><?= $_SESSION['login']->name ?></span>
+
+      </div>
     </div>
     <div class="main">
       <div class="nav">
@@ -77,7 +83,7 @@
                     <i class="fa fa-trash-o">
                     </i>
                   </a>
-                  <?php endforeach; ?>
+                <?php endforeach; ?>
             </ul>
           </div>
 

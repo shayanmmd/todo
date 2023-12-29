@@ -11,11 +11,6 @@ function errorPage()
     die();
 }
 
-function getCurrentUserId()
-{
-    return 1;
-}
-
 function dd($msg)
 {
     echo "<pre style='color: red; background: white; margin: 10; padding: 20;'>";
