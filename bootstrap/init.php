@@ -2,7 +2,6 @@
 
 include("constants.php");
 include("libs/helpers.php");
-include("config.php");
 
 session_start();
 
