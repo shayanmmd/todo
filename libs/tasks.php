@@ -30,3 +30,12 @@ function deleteTask($taskId)
     $stmt->execute([":taskId" => $taskId]);
     return $stmt->rowCount();
 }
+
+function taskDone($taskId, $taskStatus)
+{
+    global $pdo;
+    $query = "update tasks set is_done = :taskStatus where id=:id";
+    $stmt = $pdo->prepare($query);
+    $stmt->execute([":taskStatus" => $taskStatus, "id" => $taskId]);
+    return $stmt->rowCount();
+}

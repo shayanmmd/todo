@@ -2,7 +2,7 @@
 
 include("bootstrap/init.php");
 
-if (isset($_GET['logout'])){
+if (isset($_GET['logout'])) {
     logOut();
     header("location:" . siteUrl('/tpl/tpl-auth.php'));
 }
@@ -35,6 +35,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     }
 }
 
+if (isset($_GET['taskId']) and isset($_GET['currentTaskStatus'])) {
+    $result = taskDone($_GET['taskId'], !$_GET['currentTaskStatus']);
+    if ($result == 0)
+        dd("couldn't change the task for some reasons...");
+    header("location:" . siteUrl("?folderId=") . $_GET['folderId']);
+}
 
 
 $folders = getFolders();

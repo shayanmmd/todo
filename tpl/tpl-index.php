@@ -75,8 +75,11 @@
             <ul>
               <?php foreach ($tasks as $task) : ?>
                 <li class="<?= ($task->is_done) ? 'checked' : '' ?>">
-                  <i class="<?= ($task->is_done) ? 'fa fa-check-square-o' : 'fa fa-square-o' ?>">
-                  </i>
+                  <a href="?taskId=<?= $task->id ?>&currentTaskStatus=<?= $task->is_done ?>&folderId=<?= $_GET['folderId'] ?? null ?>">
+                    <i class="<?= ($task->is_done) ? 'fa fa-check-square-o' : 'fa fa-square-o' ?>">
+
+                    </i>
+                  </a>
                   <span><?= $task->title ?>
                   </span>
                   <a href="?removeTask=<?= $task->id ?>">
