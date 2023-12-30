@@ -39,3 +39,15 @@ function taskDone($taskId, $taskStatus)
     $stmt->execute([":taskStatus" => $taskStatus, "id" => $taskId]);
     return $stmt->rowCount();
 }
+
+function deleteAllTasksOfFolder($folderId)
+{
+    $rowCount = null;
+    do {
+        global $pdo;
+        $query = "delete from tasks where folder_id = :folderId";
+        $stmt = $pdo->prepare($query);
+        $stmt->execute([":folderId" => $folderId]);
+        $rowCount = $stmt->rowCount();
+    } while ($rowCount);
+}

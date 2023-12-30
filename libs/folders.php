@@ -16,6 +16,10 @@ function deleteFolder($folderId)
     $query = "delete From folders where id = :folderId";
     $stmt = $pdo->prepare($query);
     $stmt->execute(['folderId' => $folderId]);
+    if ($stmt->rowCount()!=0) {        
+        deleteAllTasksOfFolder($folderId);
+        // deleteTask()
+    }
     return $stmt->rowCount();
 }
 
@@ -25,6 +29,6 @@ function addFolder($folderName)
     $currentUserId = getCurrentUserId();
     $query = "insert into folders (name,user_id) values (:name,:user_id)";
     $stmt = $pdo->prepare($query);
-    $stmt->execute([":name"=>$folderName , ":user_id"=>$currentUserId]);
+    $stmt->execute([":name" => $folderName, ":user_id" => $currentUserId]);
     return $stmt->rowCount();
 }

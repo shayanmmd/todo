@@ -13,6 +13,6 @@ try {
     errorPage();
 }
 
-include("libs/folders.php");
 include("libs/tasks.php");
+include("libs/folders.php");
 include("libs/auth.php");
